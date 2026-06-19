@@ -29,11 +29,14 @@ Most AI text adventures are just chat boxes. Project Soul is a complete Frontend
 The magic of Project Soul lies in its robust **System Parser**. The AI is instructed via the System Prompt to append specific tags to the end of its narrative responses.
 
 For example, if you say *"I find a healing potion and 50 credits"*, the Gemini API returns:
+
 ```text
 You look down and spot a shimmering red vial next to a small pouch of coins.
 
 <update_items>+Healing Potion : Restores 50 HP : 25</update_items>
 <update_credits>+50</update_credits>
+```
+
 Before the text hits the screen, the React engine intercepts the stream, strips the XML tags out so the player never sees them, and updates the global React State. This triggers beautifully animated HUD notifications (e.g., `✦ Obtained: Healing Potion`) and updates the player's character sheet instantly.
 
 ---
@@ -70,3 +73,4 @@ You can export your entire campaign—including the world setting, your characte
 
 ## 👨‍💻 Author
 Built by **[nunxcc](https://github.com/nunxcc)** as a passion project to bridge modern React frontend architecture with next-generation LLM prompt engineering.
+```
