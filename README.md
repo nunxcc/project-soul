@@ -1,73 +1,36 @@
-# React + TypeScript + Vite
+# ✦ PROJECT SOUL ✦
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-19.0-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite)
+![Gemini AI](https://img.shields.io/badge/Google_Gemini-AI-orange?style=for-the-badge&logo=google)
+![IndexedDB](https://img.shields.io/badge/IndexedDB-Local_Storage-green?style=for-the-badge)
 
-Currently, two official plugins are available:
+**Project Soul** is an immersive, browser-based Tabletop RPG engine powered by Google's Gemini AI. It transforms standard text generation into a fully reactive gaming experience with an automated inventory, real-time stat tracking, and a dynamic world chronicle.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🔮 The Vision
+Most AI text adventures are just chat boxes. Project Soul is a complete Frontend UI that acts as a bridge between the player and an AI Dungeon Master. As you play, the AI secretly outputs XML-style command tags that the React engine parses in real-time to update your character's health, equip armor, level up your stats, and log world events.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Key Features
 
-## Expanding the ESLint configuration
+* **🧠 Reactive AI State Engine:** The AI acts as the system administrator. If you drop a weapon in the story, the AI emits hidden tags (`<update_equipped>-Iron Sword</update_equipped>`) which the UI intercepts and removes from your visual character sheet.
+* **🎒 Rich Inventory & Soul System:** Tracks Credits, character levels, XP, attributes, passive skills, active spells, and properties.
+* **💾 Persistent Offline Storage:** Built with `idb-keyval` (IndexedDB), allowing for massive, infinitely scaling local saves, including high-res Base64 background wallpapers, without hitting standard 5MB `localStorage` limits.
+* **📜 Automatic Chronicle Ledger:** The AI automatically detects major plot points and adds them to a permanent timeline so the DM never "forgets" the canon of your story.
+* **🎨 High-Fidelity Gaming UI:** Built with custom CSS glassmorphism, completely native React components (no bloated UI libraries), fading scrollbars, and dynamic theme switching (Destiny, Crimson, Requiem).
+* **📖 Storybook Rendering:** Full Markdown support for elegant, readable, and beautifully formatted AI narration.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Under the Hood: How it Works
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The magic of Project Soul lies in its robust **System Parser**. The AI is instructed via the System Prompt to append specific tags to the end of its narrative responses.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+For example, if you say *"I find a healing potion and 50 credits"*, the Gemini API returns:
+```text
+You look down and spot a shimmering red vial next to a small pouch of coins.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+<update_items>+Healing Potion : Restores 50 HP : 25</update_items>
+<update_credits>+50</update_credits>
