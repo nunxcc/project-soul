@@ -34,3 +34,39 @@ You look down and spot a shimmering red vial next to a small pouch of coins.
 
 <update_items>+Healing Potion : Restores 50 HP : 25</update_items>
 <update_credits>+50</update_credits>
+Before the text hits the screen, the React engine intercepts the stream, strips the XML tags out so the player never sees them, and updates the global React State. This triggers beautifully animated HUD notifications (e.g., `✦ Obtained: Healing Potion`) and updates the player's character sheet instantly.
+
+---
+
+## 🚀 Getting Started (Local Development)
+
+To run Project Soul on your local machine:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/nunxcc/project-soul.git
+   cd project-soul
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Play the Game:**
+   Open the localhost link in your browser. You will need a **Google Gemini API Key** (Free Tier works perfectly). Your API key is stored safely in your browser's local memory and is never sent anywhere except directly to Google.
+
+---
+
+## 📦 Exporting & Sharing (Soul Capsules)
+You can export your entire campaign—including the world setting, your character sheet, the NPC roster, and the timeline ledger—as a `.json` **Soul Capsule**. This allows you to backup your game, share your universe with friends, or easily migrate between devices.
+
+---
+
+## 👨‍💻 Author
+Built by **[nunxcc](https://github.com/nunxcc)** as a passion project to bridge modern React frontend architecture with next-generation LLM prompt engineering.
