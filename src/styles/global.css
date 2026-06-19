@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Crimson Pro', serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border2);
+  border-radius: 2px;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+}
+
+input, textarea {
+  font-family: 'Crimson Pro', serif;
+  color: var(--text);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+:root, [data-theme="destiny"] {
+  --bg: #212121;
+  --surface: #292929;
+  --surface2: #333333;
+  --surface3: #3D3D3D;
+  --border: #4A4A4A;
+  --border2: #5A5A5A;
+
+  --gold: #00E5FF;
+  --gold2: #40EEFF;
+  --text: #F0F0F0;
+  --text2: #CCCCCC;
+  --text3: #888888;
+
+  --red: #C84B4B;
+  --blue: #00B8CC;
+  --blue-dim: rgba(0, 184, 204, 0.14);
+  --gold-dim: rgba(0, 229, 255, 0.12);
+  --radius: 8px;
+
+  --gold-dim-hover: rgba(0, 229, 255, 0.24);
+  --gold-glow: rgba(0, 229, 255, 0.15);
+  --blue-dim-hover: rgba(0, 184, 204, 0.24);
+
+  --font-xs: 12px;       
+  --font-sm: 14px;       
+  --font-md: 16px;       
+  --font-lg: 17px;       
+  --font-xl: 19px;       
+}
+
+
+[data-theme="crimson"] {
+  --bg: #141416;
+  --surface: #222227;
+  --surface2: #2D2D34;
+  --surface3: #393941;
+  --border: #44444F;
+  --border2: #525260;
+  
+  --gold: #FF3366;      
+  --gold2: #FF6688;     
+  --text: #F4F4F6;
+  --text2: #C8C8CC;
+  --text3: #888892;
+  
+  --red: #e03333;
+  --blue: #FF2E55;      
+  --blue-dim: rgba(255, 46, 85, 0.12);
+  --gold-dim: rgba(255, 51, 102, 0.12);
+
+  --gold-dim-hover: rgba(255, 51, 102, 0.24);
+  --gold-glow: rgba(255, 51, 102, 0.15);
+  --blue-dim-hover: rgba(255, 46, 85, 0.24);
+}
+
+
+[data-theme="true-soul"] {
+  --bg: #212121;
+  --surface: #292929;
+  --surface2: #333333;
+  --surface3: #3D3D3D;
+  --border: #4A4A4A;
+  --border2: #5A5A5A;
+
+  --gold: #D8B4FE;
+  --gold2: #E4CAFE;
+  --text: #F0F0F0;
+  --text2: #CCCCCC;
+  --text3: #888888;
+
+  --red: #C84B4B;
+  --blue: #B088E0;
+  --blue-dim: rgba(176, 136, 224, 0.14);
+  --gold-dim: rgba(216, 180, 254, 0.13);
+  --radius: 8px;
+
+  --gold-dim-hover: rgba(216, 180, 254, 0.26);
+  --gold-glow: rgba(216, 180, 254, 0.16);
+  --blue-dim-hover: rgba(176, 136, 224, 0.26);
+}
+
+
+[data-theme="requiem"] {
+  --bg: #1a1816;
+  --surface: #232020;
+  --surface2: #2c2828;
+  --surface3: #353030;
+  --border: #423d3d;
+  --border2: #524c4c;
+
+  --gold: #d9a35e;
+  --gold2: #d9a35e;
+  --text: #ece7e1;
+  --text2: #aaa39c;
+  --text3: #6e6864;
+
+  --red: #C84B4B;
+  --blue: #d9a35e;
+  --blue-dim: rgba(217, 163, 94, 0.14);
+  --gold-dim: rgba(217, 163, 94, 0.12);
+  --radius: 8px;
+
+  --gold-dim-hover: rgba(217, 163, 94, 0.24);
+  --gold-glow: rgba(217, 163, 94, 0.18);
+  --blue-dim-hover: rgba(217, 163, 94, 0.24);
+}
+
+
+.fading-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.fading-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.fading-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent; 
+  border-radius: 2px;
+  transition: background 0.2s ease-in-out;
+}
+
+.fading-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: var(--border2);
+}
+
+.input-base {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  color: var(--text);
+  font-family: 'Crimson Pro', serif;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input-base:focus {
+  border-color: var(--gold);
+}
+
+.btn-primary {
+  background: var(--gold-dim);
+  border: 1px solid var(--gold);
+  color: var(--text);
+  padding: 12px 28px;
+  border-radius: var(--radius);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text3);
+}
+.btn-primary:not(:disabled):hover {
+  box-shadow: 0 4px 10px var(--gold-glow);
+}
+
+.markdown-content p {
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+
+
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
